@@ -35,6 +35,7 @@
             src="Picture1.png"
             alt="0203"
             class="h-10 w-auto object-contain"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center gap-1 font-black text-2xl text-blue-800 tracking-tighter\'><span>0203</span><svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'currentColor\' class=\'w-6 h-6\'><path fill-rule=\'evenodd\' d=\'M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 5.25V4.5z\' clip-rule=\'evenodd\' /></svg></div>'"
           />
         </a>
 
@@ -317,7 +318,7 @@
             艾果智能科技與中華電信聯手，歡迎全台宮廟、補教名師、品牌、企業、KOL、金融專家等夥伴加入，共創 AI 語音新未來。
           </p>
           <div class="pt-4">
-             <img src="Picture1.png" alt="艾果智能科技" class="h-12 object-contain" />
+             <img src="aigoasia_logo.png" alt="艾果智能科技" class="h-12 object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-bold text-2xl text-blue-800\'>AIGO ASIA</span>'" />
           </div>
         </div>
 
@@ -336,7 +337,7 @@
              <div class="flex items-center gap-4">
                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                <div>
-                 <a href="/cdn-cgi/l/email-protection#576765676417363e303836243e367934383a" class="text-slate-900 font-bold hover:text-blue-600 hover:underline transition"><span class="__cf_email__" data-cfemail="d6e6e4e6e596b7bfb1b9b7a5bfb7f8b5b9bb">[email&#160;protected]</span></a>
+                 <a href="mailto:0203@aigoasia.com" class="text-slate-900 font-bold hover:text-blue-600 hover:underline transition">0203@aigoasia.com</a>
                </div>
              </div>
            </div>
@@ -350,9 +351,20 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuItems = document.querySelectorAll('.menu-item');
 
-    menuBtn.addEventListener
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
