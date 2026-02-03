@@ -7,25 +7,14 @@
   <meta name="description" content="加入艾果智能科技團隊，一起打造 AI 語音的未來" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8;
-    }
-    .required::after {
-      content: " *";
-      color: #ef4444;
-    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .required::after { content: " *"; color: #ef4444; }
   </style>
 </head>
+
 <body class="bg-slate-50 font-sans text-slate-700 antialiased pt-16">
 
   <!-- Navigation Bar -->
@@ -56,7 +45,7 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="menu-btn" class="md:hidden p-2 text-slate-600 hover:text-blue-700 rounded-lg transition focus:outline-none">
+        <button id="menu-btn" class="md:hidden p-2 text-slate-600 hover:text-blue-700 rounded-lg transition focus:outline-none" aria-label="Open menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
@@ -92,7 +81,7 @@
     <section class="mb-16">
       <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12">
         <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">為什麼加入艾果？</h2>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="flex gap-4">
             <div class="w-12 h-12 flex-shrink-0 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
@@ -149,7 +138,7 @@
     <!-- Open Positions -->
     <section class="mb-16">
       <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">目前職缺</h2>
-      
+
       <div class="space-y-6">
         <!-- Position 1 -->
         <div class="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition duration-300">
@@ -285,19 +274,26 @@
     <section id="application-form" class="scroll-mt-24">
       <div class="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12">
         <h2 class="text-3xl font-bold text-slate-900 mb-2">應徵表單</h2>
-        <p class="text-slate-500 mb-8 text-sm"><span class="text-red-500">*</span> 為必填</p>
+        <p class="text-slate-500 mb-8 text-sm"><span class="text-red-500">*</span> 為必填；履歷可「上傳檔案」或「填寫連結」擇一</p>
 
-        <form id="career-form" class="space-y-6">
+        <!-- ✅ Forminit POST + 檔案上傳 -->
+        <form
+          id="career-form"
+          action="https://forminit.com/f/acnnwko98sx"
+          method="POST"
+          enctype="multipart/form-data"
+          class="space-y-6"
+        >
           <!-- Personal Info Section -->
           <div class="space-y-6">
             <h3 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3">個人資料</h3>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Email -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2 required">Email</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
                   required
                   placeholder="your.email@example.com"
@@ -308,8 +304,8 @@
               <!-- Phone -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2 required">行動電話</label>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="phone"
                   required
                   placeholder="0912-345-678"
@@ -320,8 +316,8 @@
               <!-- Last Name -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2 required">姓氏</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="lastName"
                   required
                   placeholder="王"
@@ -332,8 +328,8 @@
               <!-- First Name -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2 required">名字</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="firstName"
                   required
                   placeholder="小明"
@@ -344,8 +340,8 @@
               <!-- Current Company -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2 required">最近任職公司</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="currentCompany"
                   required
                   placeholder="公司名稱"
@@ -356,8 +352,8 @@
               <!-- Current Position -->
               <div>
                 <label class="block text-slate-700 font-medium mb-2">最近任職職務</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="currentPosition"
                   placeholder="職稱"
                   class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
@@ -366,26 +362,47 @@
             </div>
           </div>
 
+          <!-- Applied Position -->
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3">應徵職位</h3>
+            <div>
+              <label class="block text-slate-700 font-medium mb-2 required">選擇應徵職位</label>
+              <select
+                name="position"
+                required
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+              >
+                <option value="">請選擇職位</option>
+                <option value="後端工程師">後端工程師 (Backend Engineer)</option>
+                <option value="AI 工程師">AI 工程師 (AI Engineer)</option>
+                <option value="產品經理">產品經理 (Product Manager)</option>
+                <option value="業務開發經理">業務開發經理 (Business Development Manager)</option>
+              </select>
+            </div>
+          </div>
+
           <!-- Salary Expectation -->
           <div class="space-y-6">
             <h3 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3">期望薪資</h3>
             <p class="text-sm text-slate-500">若未填期望薪資上限，系統將顯示為「下限金額」。例：月薪 40,000~ TWD</p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-slate-700 font-medium mb-2">月薪</label>
                 <div class="flex gap-4 items-center">
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="salaryMin"
                     placeholder="請輸入下限"
+                    min="0"
                     class="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
                   />
                   <span class="text-slate-500">~</span>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     name="salaryMax"
                     placeholder="請輸入上限（可留白）"
+                    min="0"
                     class="flex-1 px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
                   />
                   <span class="text-slate-600 font-medium">TWD</span>
@@ -394,33 +411,101 @@
             </div>
           </div>
 
-          <!-- Resume -->
+          <!-- Resume Upload -->
           <div class="space-y-6">
             <h3 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3">履歷</h3>
-            
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-slate-700 font-medium mb-2 required">上傳履歷 或 提供連結</label>
+
+                <div class="relative">
+                  <input
+                    type="file"
+                    name="resume"
+                    id="resume-upload"
+                    accept=".pdf,.doc,.docx"
+                    class="hidden"
+                    onchange="handleFileSelect(this)"
+                  />
+
+                  <label
+                    for="resume-upload"
+                    id="upload-area"
+                    class="flex items-center justify-center gap-3 w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer hover:bg-blue-50 hover:border-blue-400 transition group"
+                    ondragover="handleDragOver(event)"
+                    ondragleave="handleDragLeave(event)"
+                    ondrop="handleDrop(event)"
+                  >
+                    <svg class="w-8 h-8 text-slate-400 group-hover:text-blue-500 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                    </svg>
+                    <div class="text-center">
+                      <p class="text-slate-600 font-medium group-hover:text-blue-600 transition">點擊選擇檔案或拖曳至此</p>
+                      <p class="text-sm text-slate-400 mt-1">支援 PDF、DOC、DOCX；檔案上限 10MB</p>
+                    </div>
+                  </label>
+                </div>
+
+                <div id="file-name" class="mt-3"></div>
+              </div>
+
+              <!-- Divider -->
+              <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                  <div class="w-full border-t border-slate-200"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                  <span class="px-4 bg-white text-slate-500">或</span>
+                </div>
+              </div>
+
+              <!-- Resume Link -->
+              <div>
+                <label class="block text-slate-700 font-medium mb-2">履歷連結</label>
+                <input
+                  type="url"
+                  name="resumeLink"
+                  placeholder="https://drive.google.com/... 或其他雲端連結"
+                  class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                />
+                <p class="text-xs text-slate-500 mt-2">如果你使用 Google Drive、Dropbox 等雲端履歷連結，也可以填寫於此</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Message -->
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold text-slate-800 border-b border-slate-200 pb-3">補充說明</h3>
             <div>
-              <button 
-                type="button"
-                onclick="alert('此為示範網站，實際功能需整合檔案上傳系統')"
-                class="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 text-blue-700 font-medium rounded-lg border-2 border-blue-200 hover:bg-blue-100 transition"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                </svg>
-                上傳履歷
-              </button>
-              <p class="text-sm text-slate-500 mt-2">支援 PDF、DOC、DOCX 格式，檔案大小上限 10MB</p>
+              <label class="block text-slate-700 font-medium mb-2">自我介紹或其他補充資訊</label>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="請簡單介紹你的背景、專長或其他想讓我們知道的資訊..."
+                class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition resize-none"
+              ></textarea>
             </div>
           </div>
 
           <!-- Submit Button -->
           <div class="pt-6 border-t border-slate-200">
-            <button 
+            <button
               type="submit"
-              class="w-full md:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-lg shadow-lg transition transform hover:-translate-y-0.5"
+              id="submit-btn"
+              class="w-full md:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg rounded-lg shadow-lg transition transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              確定投遞
+              <span id="submit-text">確定投遞</span>
+              <span id="submit-loading" class="hidden">
+                <svg class="inline w-5 h-5 mr-2 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                發送中...
+              </span>
             </button>
+
+            <p class="text-sm text-slate-500 mt-4">送出後，我們會收到你的應徵資料並盡快與你聯繫</p>
           </div>
         </form>
       </div>
@@ -439,29 +524,36 @@
             艾果智能科技與中華電信聯手，歡迎全台宮廟、補教名師、品牌、企業、KOL、金融專家等夥伴加入，共創 AI 語音新未來。
           </p>
           <div class="pt-4">
-             <img src="aigoasia_logo.png" alt="艾果智能科技" class="h-12 object-contain" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'font-bold text-2xl text-blue-800\'>AIGO ASIA</span>'" />
+            <img src="aigoasia_logo.png" alt="艾果智能科技" class="h-12 object-contain"
+                 onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'font-bold text-2xl text-blue-800\\'>AIGO ASIA</span>'" />
           </div>
         </div>
 
         <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-xl">
-           <div class="space-y-4">
-             <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">聯絡資訊</h3>
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">聯絡資訊</h3>
 
-             <div class="flex items-start gap-4">
-               <svg class="w-6 h-6 text-blue-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-               <div>
-                 <p class="text-slate-900 font-bold">艾果智能科技(股)公司</p>
-                 <p class="text-slate-500">台北市內湖區瑞光路 355 號 B 棟 3 樓</p>
-               </div>
-             </div>
+            <div class="flex items-start gap-4">
+              <svg class="w-6 h-6 text-blue-600 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+              <div>
+                <p class="text-slate-900 font-bold">艾果智能科技(股)公司</p>
+                <p class="text-slate-500">台北市內湖區瑞光路 355 號 B 棟 3 樓</p>
+              </div>
+            </div>
 
-             <div class="flex items-center gap-4">
-               <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-               <div>
-                 <a href="mailto:0203@aigoasia.com" class="text-slate-900 font-bold hover:text-blue-600 hover:underline transition">0203@aigoasia.com</a>
-               </div>
-             </div>
-           </div>
+            <div class="flex items-center gap-4">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <div>
+                <a href="mailto:0203@aigoasia.com" class="text-slate-900 font-bold hover:text-blue-600 hover:underline transition">
+                  0203@aigoasia.com
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -478,9 +570,11 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const menuItems = document.querySelectorAll('.menu-item');
 
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
 
     menuItems.forEach(item => {
       item.addEventListener('click', () => {
@@ -488,11 +582,201 @@
       });
     });
 
-    // Form submission
-    document.getElementById('career-form').addEventListener('submit', (e) => {
+    // ===== Resume upload helpers =====
+    const MAX_MB = 10;
+    const VALID_EXTS = ['pdf', 'doc', 'docx'];
+
+    function bytesToMB(bytes) {
+      return bytes / 1024 / 1024;
+    }
+
+    function getExt(name) {
+      const parts = String(name || '').split('.');
+      return parts.length > 1 ? parts.pop().toLowerCase() : '';
+    }
+
+    function showFileSuccess(file) {
+      const fileNameDisplay = document.getElementById('file-name');
+      if (!fileNameDisplay) return;
+
+      const fileSizeMB = bytesToMB(file.size).toFixed(2);
+
+      fileNameDisplay.innerHTML = `
+        <div class="flex items-center gap-3 bg-green-50 border-2 border-green-400 rounded-lg p-4 animate-pulse">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+          </div>
+          <div class="flex-1">
+            <p class="text-green-900 font-bold text-lg">✓ 已選擇檔案</p>
+            <p class="text-green-700 font-medium mt-1">${file.name}</p>
+            <p class="text-green-600 text-sm">${fileSizeMB} MB</p>
+          </div>
+          <button
+            type="button"
+            onclick="clearFile()"
+            class="flex-shrink-0 text-green-600 hover:text-green-800 hover:bg-green-100 rounded-lg p-2 transition"
+            title="清除檔案"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      `;
+
+      setTimeout(() => {
+        const box = fileNameDisplay.querySelector('.animate-pulse');
+        if (box) box.classList.remove('animate-pulse');
+      }, 1500);
+    }
+
+    function validateFile(file) {
+      if (!file) return { ok: false, msg: '找不到檔案' };
+
+      const ext = getExt(file.name);
+      if (!VALID_EXTS.includes(ext)) {
+        return { ok: false, msg: '請上傳 PDF、DOC 或 DOCX 格式的檔案' };
+      }
+
+      if (bytesToMB(file.size) > MAX_MB) {
+        return { ok: false, msg: `檔案大小超過 ${MAX_MB}MB，請改用較小檔案或提供履歷連結` };
+      }
+
+      return { ok: true, msg: '' };
+    }
+
+    function setUploadAreaActive(active) {
+      const uploadArea = document.getElementById('upload-area');
+      if (!uploadArea) return;
+
+      if (active) {
+        uploadArea.classList.add('bg-blue-100', 'border-blue-500');
+        uploadArea.classList.remove('bg-slate-50', 'border-slate-300');
+      } else {
+        uploadArea.classList.remove('bg-blue-100', 'border-blue-500');
+        uploadArea.classList.add('bg-slate-50', 'border-slate-300');
+      }
+    }
+
+    // Input file change
+    function handleFileSelect(input) {
+      if (!input || !input.files || !input.files[0]) return;
+
+      const file = input.files[0];
+      const v = validateFile(file);
+      if (!v.ok) {
+        alert(v.msg);
+        clearFile();
+        return;
+      }
+
+      showFileSuccess(file);
+    }
+
+    // Drag & drop handlers
+    function handleDragOver(e) {
       e.preventDefault();
-      alert('感謝您的應徵！這是示範網站，實際功能需整合後端系統。我們會盡快與您聯繫。');
-    });
+      e.stopPropagation();
+      setUploadAreaActive(true);
+    }
+
+    function handleDragLeave(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setUploadAreaActive(false);
+    }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setUploadAreaActive(false);
+
+      const files = e.dataTransfer && e.dataTransfer.files ? e.dataTransfer.files : null;
+      if (!files || files.length === 0) return;
+
+      const file = files[0];
+      const v = validateFile(file);
+      if (!v.ok) {
+        alert(v.msg);
+        return;
+      }
+
+      // Assign dropped file to file input (better compatibility)
+      const fileInput = document.getElementById('resume-upload');
+      if (!fileInput) return;
+
+      try {
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        fileInput.files = dt.files;
+      } catch (err) {
+        // Fallback: some browsers may not allow programmatic assignment
+        // User can still click upload area to select
+      }
+
+      showFileSuccess(file);
+    }
+
+    function clearFile() {
+      const fileInput = document.getElementById('resume-upload');
+      const fileNameDisplay = document.getElementById('file-name');
+      if (fileInput) fileInput.value = '';
+      if (fileNameDisplay) fileNameDisplay.innerHTML = '';
+    }
+
+    // Form submission handling
+    const form = document.getElementById('career-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const submitLoading = document.getElementById('submit-loading');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        const fileInput = document.getElementById('resume-upload');
+        const linkInput = document.querySelector('input[name="resumeLink"]');
+
+        const hasFile = fileInput && fileInput.files && fileInput.files[0];
+        const hasLink = linkInput && String(linkInput.value || '').trim().length > 0;
+
+        // 履歷：檔案 or 連結 擇一（至少要有一個）
+        if (!hasFile && !hasLink) {
+          e.preventDefault();
+          alert('請上傳履歷檔案或提供履歷連結（擇一即可）');
+          return;
+        }
+
+        // If has file, validate again (safety)
+        if (hasFile) {
+          const v = validateFile(fileInput.files[0]);
+          if (!v.ok) {
+            e.preventDefault();
+            alert(v.msg);
+            return;
+          }
+        }
+
+        // Show loading state
+        if (submitBtn && submitText && submitLoading) {
+          submitBtn.disabled = true;
+          submitText.classList.add('hidden');
+          submitLoading.classList.remove('hidden');
+        }
+
+        // Let the browser submit normally to Forminit
+        // Redirect is handled in Forminit settings (as your screenshot shows)
+      });
+    }
+
+    // Make functions available globally (for inline handlers)
+    window.handleFileSelect = handleFileSelect;
+    window.handleDragOver = handleDragOver;
+    window.handleDragLeave = handleDragLeave;
+    window.handleDrop = handleDrop;
+    window.clearFile = clearFile;
   </script>
 </body>
 </html>
